@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:0 OMG</title>
+    <style>
+        /* CSS para los corazones y la animación */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh); /* El corazón caerá hasta la parte inferior de la pantalla */
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            position: absolute;
+            top: -50px; /* Inicia desde arriba de la pantalla */
+            font-size: 30px;
+            animation: fall linear infinite;
+            z-index: 9999;
+            opacity: 0.8;
+        }
+
+        body {
+            background-color: #ffe6f2;
+            overflow: hidden; /* Para que los corazones que caen fuera de la pantalla no creen barra de desplazamiento */
+            position: relative;
+        }
+
+        #Content {
+            margin: 150px;
+            padding: 120px;
+            border: solid black;
+            box-shadow: rgba(0, 0, 0, 0.678) 25px 25px 2px;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            background-color: bisque;
+        }
+
+        p {
+            font-family: cursive;
+            font-size: 25px;
+            text-align: justify;
+        }
+
+        #Text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+            margin-top: 45vh;
+        }
+    </style>
+</head>
+<body>
+    
+     <!-- Primer audio -->
+  <audio id="audio1" autoplay>
+    <source src="Music/Butterfly - BTS [Traducida Al Español].mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+  
+  <!-- Segundo audio (inicia cuando el primero termine) -->
+  <audio id="audio2" style="display: none;">
+    <source src="Music/Jesse  Joy  Luis Fonsi - Tanto (LetraLyrics).mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <script>
+    // Obtener el primer y segundo elemento de audio
+    const audio1 = document.getElementById("audio1");
+    const audio2 = document.getElementById("audio2");
+
+    // Al finalizar la primera canción, empezar la segunda
+    audio1.addEventListener('ended', function() {
+      audio2.play();
+    });
+  </script>
+
+    <p id="Text">No es dos 😨, bueno si, pero no <br><br>Lo que quería decir es... ¿Puedo ser tu novio? y más aún importante ¿Quieres ser mi novia?, ya sabes "Tu y yo"... Sip, esteeee, a eso me refiero ://3 <br><br> Espero tu respuesta...</p>
+
+    <script>
+        // Función para generar los corazones
+        function generateHearts() {
+            for (let i = 0; i < 30; i++) {  // Número de corazones que caerán
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+
+                // Posicionamos los corazones en lugares aleatorios a lo largo del eje X
+                let leftPosition = Math.random() * 100; // 100% del ancho de la pantalla
+                let animationDuration = Math.random() * 4 + 5; // Duración aleatoria entre 5 y 9 segundos
+
+                // Aplicamos los estilos al corazón
+                heart.style.left = `${leftPosition}vw`;
+                heart.style.animationDuration = `${animationDuration}s`;
+
+                document.body.appendChild(heart);
+                
+                // Eliminamos el corazón después de que cae
+                setTimeout(() => {
+                    heart.remove();
+                }, animationDuration * 1000);
+            }
+        }
+
+        // Llamamos a la función para generar corazones al cargar la página
+        generateHearts();
+
+        // Opcional: Generar nuevos corazones cada 2 segundos
+        setInterval(generateHearts, 2000);
+    </script>
+</body>
+</html>

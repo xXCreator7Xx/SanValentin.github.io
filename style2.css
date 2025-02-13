@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Mifuente' ;
+    src: url(Fonts/Tangerine_Bold.ttf);
+}
+/*
+@font-face {
+    font-family: 'Mifuentes' ;
+    src: url(Fonts/Catchye.otf);
+}
+*/
+body{
+    background-color: #ffe6f2;
+}
+
+#Content{
+    margin: 150px;
+    padding: 120px;
+    border: solid black;
+    box-shadow: rgba(0, 0, 0, 0.678) 25px 25px 2px;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: bisque;
+}
+
+p{
+    font-family: cursive;
+    font-size: 25px;
+    text-align: justify;
+}
+

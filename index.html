@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Others/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Para mi hermosa Jasiff</title>
+</head>
+<body>
+
+
+<div class="Content">
+<div class="container">
+    <div class="row">
+        <div id="Atacher" class="col">
+
+            
+            
+            <p>¿Quieres ser mi San Valentín?</p>
+            <br>
+            <button onclick="activateHearts()">Obvio que sí</button>
+            <p id="message" style="display:none; margin-top: 12vh; color:rgb(122, 19, 143);">¡Qué bien! Ya me haces muy feliz. Muchas gracias ❤️</p>
+            <br>
+            
+                <img id="myImage" src="Resources/Florero.png" style="width:170px">
+                <br><br>
+                <a href="San_Valentin.html" style="text-decoration: none;">
+                    <p id="demo" style="display:none; text-decoration: none; color: rgb(37, 102, 177);">♥ Dale aqui ♥</p>
+                </a>
+                <button type="button" onclick="document.getElementById('demo').style.display='block'; ">Presióname ♥</button>
+
+                <script>
+                    function activateHearts() {
+                        document.getElementById('myImage').src = 'Gifs/Index.gif';
+                        showHearts();
+                        document.getElementById('message').style.display = 'block';
+                        
+                    }
+                    
+
+                    function showHearts() {
+
+                        for (let i = 0; i < 50; i++) { 
+                            let heart = document.createElement("div");
+                            heart.classList.add("heart");
+                            heart.innerHTML = "❤️";
+                            
+                            let size = Math.random() * 30 + 10;
+                            let left = Math.random() * 100;
+                            let duration = Math.random() * 2 + 3;
+                
+                            heart.style.left = left + "vw";
+                            heart.style.fontSize = size + "px";
+                            heart.style.animationDuration = duration + "s";
+                
+                            document.body.appendChild(heart);
+                
+                            setTimeout(() => {
+                                heart.remove();
+                            }, duration * 1000);
+                        }
+                    }
+                </script>
+            
+        </div>
+    </div>
+</div>
+</div>
+    
+
+
+
+
+
+<!--  
+
+
+
+
+<br><br><br>
+
+-->
+
+
+<script src="Others/js/bootstrap.min.js"></script>
+<script src="Script.js"></script>
+</body>
+</html>
