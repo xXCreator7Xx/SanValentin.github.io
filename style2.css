@@ -2,29 +2,42 @@
     font-family: 'Mifuente' ;
     src: url(Fonts/Tangerine_Bold.ttf);
 }
-/*
-@font-face {
-    font-family: 'Mifuentes' ;
-    src: url(Fonts/Catchye.otf);
-}
-*/
-body{
+
+body {
     background-color: #ffe6f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Para centrar en toda la pantalla */
+    margin: 0;
+    padding: 20px; /* Un poco de espacio en los lados */
 }
 
-#Content{
-    margin: 150px;
-    padding: 120px;
+#Content {
+    width: 90%; /* Para que se ajuste a la pantalla */
+    max-width: 600px; /* Tamaño máximo para no ser demasiado ancho */
+    padding: 40px; /* Reducido para móviles */
     border: solid black;
-    box-shadow: rgba(0, 0, 0, 0.678) 25px 25px 2px;
+    box-shadow: rgba(0, 0, 0, 0.678) 10px 10px 2px;
     border-top-left-radius: 25px;
     border-bottom-right-radius: 25px;
     background-color: bisque;
 }
 
-p{
+p {
     font-family: cursive;
-    font-size: 25px;
+    font-size: 22px;
     text-align: justify;
 }
 
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+    #Content {
+        padding: 20px; /* Menos padding en móviles */
+        font-size: 18px; /* Reducir texto para que no se vea muy grande */
+    }
+
+    p {
+        font-size: 18px;
+    }
+}
